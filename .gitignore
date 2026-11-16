@@ -1,6 +1,7 @@
 .venv
 
 .env
-.postman
+
+.postman 
 
 __pycache__
