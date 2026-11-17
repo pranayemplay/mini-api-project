@@ -1,6 +1,4 @@
 name: Urls
 values:
-  - key: frank
-    value: ''
-  - key: countries
+  - key: base_url
     value: ''
