@@ -1,0 +1,23 @@
+$kind: http-request
+name: Create trip
+url: "{{base_url}}/trips"
+method: POST
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "traveller": "Asha",
+      "country": "Japan",
+      "budget_inr": 150000,
+      "travel_date": "2099-01-01"
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 201", function () { pm.response.to.have.status(201); });
+      pm.environment.set("trip_id", pm.response.json().id);
+order: 1000

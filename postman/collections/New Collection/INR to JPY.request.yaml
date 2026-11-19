@@ -1,4 +1,10 @@
 $kind: http-request
-url: ""
+name: INR to JPY
+url: "{{base_url}}/roam/japan?budget_inr=150000"
 method: GET
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 200", function () { pm.response.to.have.status(200); });
 order: 4000

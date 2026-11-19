@@ -1,4 +1,10 @@
 $kind: http-request
-url: ""
+name: Made up country
+url: "{{base_url}}/countries/atlantis"
 method: GET
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 404", function () { pm.response.to.have.status(404); });
 order: 3000

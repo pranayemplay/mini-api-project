@@ -1,5 +1,10 @@
 $kind: http-request
-name: Made up
-url: ""
+name: Made up country (roam)
+url: "{{base_url}}/roam/atlantis?budget_inr=1000"
 method: GET
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 404", function () { pm.response.to.have.status(404); });
 order: 5000

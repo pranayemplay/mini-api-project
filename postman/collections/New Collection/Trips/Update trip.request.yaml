@@ -1,0 +1,19 @@
+$kind: http-request
+name: Update trip
+url: "{{base_url}}/trips/{{trip_id}}"
+method: PATCH
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "budget_inr": 175000
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 200", function () { pm.response.to.have.status(200); });
+order: 4000

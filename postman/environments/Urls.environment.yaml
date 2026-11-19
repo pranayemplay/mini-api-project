@@ -1,4 +1,14 @@
+$kind: collection
 name: Urls
 values:
   - key: base_url
+<<<<<<< Updated upstream
+=======
+    value: http://localhost:8000
+  - key: trip_id
+    value: ''
+  - key: frank
+    value: ''
+  - key: countries
+>>>>>>> Stashed changes
     value: ''
