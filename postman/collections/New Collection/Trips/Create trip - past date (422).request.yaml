@@ -1,0 +1,22 @@
+$kind: http-request
+name: Create trip - past date (422)
+url: "{{base_url}}/trips"
+method: POST
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "traveller": "Asha",
+      "country": "Japan",
+      "budget_inr": 150000,
+      "travel_date": "2020-01-01"
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 422", function () { pm.response.to.have.status(422); });
+order: 6000

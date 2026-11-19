@@ -1,4 +1,10 @@
 $kind: http-request
-url: ""
+name: Capital
+url: "{{base_url}}/countries/japan"
 method: GET
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 200", function () { pm.response.to.have.status(200); });
 order: 2000

@@ -1,0 +1,10 @@
+$kind: http-request
+name: List trips
+url: "{{base_url}}/trips"
+method: GET
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 200", function () { pm.response.to.have.status(200); });
+order: 2000
